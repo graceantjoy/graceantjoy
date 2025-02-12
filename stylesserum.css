@@ -1,0 +1,32 @@
+/* Swiper 轮播图 */
+.swiper-container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.swiper-slide img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide img:hover {
+    transform: scale(1.05);
+}
+
+/* 购物车按钮 */
+.add-to-cart {
+    background: #ff66b2;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-to-cart:hover {
+    background: #ff3385;
+}
