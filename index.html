@@ -100,10 +100,10 @@
         }
 
         /* 人气产品部分 */
-     .products {
-    padding: 5rem 8%;
-    background: #ffffff; /* 或者使用 background: white; */
-}
+        .products {
+            padding: 5rem 8%;
+            background: #ffffff; /* 或者使用 background: white; */
+        }
 
         .products h2 {
             text-align: center;
@@ -175,15 +175,15 @@
 <body>
 
     <!-- 导航栏 -->
-   <nav>
-    <div class="logo">GRACEANTJOY</div>
-    <div class="nav-links">
-        <a href="index.html">首页</a>
-        <a href="index.html#popular-products">产品</a>
-        <a href="cart.html">购物车 (<span id="cartCount">0</span>)</a>
-        <a href="https://www.instagram.com/graceantjoy?igsh=NXU2ejBuc2VtanZk&utm_source=qr">联系我们</a>
-    </div>
-</nav>
+    <nav>
+        <div class="logo">GRACEANTJOY</div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="index.html#popular-products">产品</a>
+            <a href="cart.html">购物车 (<span id="cartCount">0</span>)</a>
+            <a href="https://www.instagram.com/graceantjoy?igsh=NXU2ejBuc2VtanZk&utm_source=qr">联系我们</a>
+        </div>
+    </nav>
 
     <!-- 轮播 banner -->
     <section class="banner">
@@ -239,5 +239,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Cart Count Update Script -->
+    <script>
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
 </body>
 </html>
