@@ -47,13 +47,13 @@
         }
         .swiper-container {
             width: 100%;
-            height: 300px;
+            height: auto;
             margin-bottom: 20px;
         }
         .swiper-slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
         }
         .product-info {
             text-align: center;
@@ -141,9 +141,6 @@
                     <div class="swiper-slide"><img src="103.jpeg" alt="防晒霜3" class="gallery-img"></div>
                     <div class="swiper-slide"><img src="104.jpeg" alt="防晒霜4" class="gallery-img"></div>
                 </div>
-                <!-- 前后切换按钮 -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
             <!-- ✅ 产品信息 -->
             <div class="product-info">
@@ -170,10 +167,6 @@
     <script>
         var swiper = new Swiper('.swiper-container', {
             loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
             zoom: true,
             spaceBetween: 10,
         });
