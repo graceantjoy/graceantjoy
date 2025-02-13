@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结账 - Femoire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>结账</h1>
+</header>
+
+<main>
+    <div id="order-summary">
+        <h2>订单详情</h2>
+        <div id="order-items"></div>
+        <h3>总金额: <span id="order-total">$0.00</span></h3>
+    </div>
+
+    <form action="/create-checkout-session" method="POST">
+        <button type="submit" class="pay-button">前往支付</button>
+    </form>
+</main>
+
+<script>
+    // 获取购物车总金额
+    let totalAmount = localStorage.getItem("cartTotal") || 0;
+    document.getElementById("order-total").innerText = $${parseFloat(totalAmount).toFixed(2)};
+
+    // 显示订单详情
+    let orderItems = JSON.parse(localStorage.getItem("cart")) || [];
+    let orderContainer = document.getElementById("order-items");
+    orderItems.forEach(item => {
+        orderContainer.innerHTML += <p>${item.name} x ${item.quantity} - $${(item.price * item.quantity).toFixed(2)}</p>;
+    });
+</script>
+
+</body>
+</html>
