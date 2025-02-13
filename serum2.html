@@ -177,21 +177,42 @@
             zoom: true,
             spaceBetween: 10,
         });
+
         function changeQuantity(amount) {
             let quantityInput = document.getElementById('quantity');
             let newValue = parseInt(quantityInput.value) + amount;
             if (newValue < 1) newValue = 1;
             quantityInput.value = newValue;
         }
+
         function addToCart(productName, price) {
-            // Add product to cart
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.name === productName);
+            if (existingItem) {
+                existingItem.quantity += parseInt(document.getElementById('quantity').value);
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: parseInt(document.getElementById('quantity').value)
+                });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
             let cartNotification = document.getElementById('cartNotification');
             cartNotification.style.display = 'block';
             setTimeout(() => {
                 cartNotification.style.display = 'none';
             }, 2000);
         }
+
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
     </script>
 </body>
 </html>
-``` ▋
