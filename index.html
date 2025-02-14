@@ -100,68 +100,7 @@
         }
 
         /* 人气产品部分 */
-        .products {
-            padding: 5rem 8%;
-            background: #ffffff; /* 或者使用 background: white; */
-        }
-
-        .products h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            animation: slideIn 1s ease-in-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .product-card {
-            background: var(--secondary-color);
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-weight: 500;
-            color: var(--primary-color);
-            margin: 1rem 0;
-            font-size: 1.2rem;
-        }
-
-        .btn {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            padding: 0.8rem 2rem;
-            border: none;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-        }
+       <link rel="stylesheet" href="style.css"
 
         /* 页脚 */
         footer {
