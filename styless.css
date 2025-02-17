@@ -7,14 +7,14 @@
 }
 
 body {
-    background: #ffffff;
+    background: #ffebef;
     color: #333;
     line-height: 1.6;
 }
 
 /* 导航栏 */
 nav {
-    background: var(--secondary-color);
+    background: #ffc1e3;
     padding: 1.5rem 8%;
     display: flex;
     justify-content: space-between;
@@ -25,7 +25,7 @@ nav {
 /* 导航栏字体样式 */
 .nav-links a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: #fff;
     font-size: 1rem;
     font-weight: 500;
     padding: 0.7rem 1.5rem;
@@ -34,7 +34,7 @@ nav {
 
 /* 鼠标悬停效果 */
 .nav-links a:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 105, 180, 0.3);
     border-radius: 5px;
 }
 
@@ -84,6 +84,7 @@ nav {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: #ff69b4;
 }
 
 .product-description {
@@ -98,6 +99,7 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
+    color: #ff69b4;
 }
 
 /* 数量选择 */
@@ -110,7 +112,7 @@ nav {
 }
 
 .quantity-btn {
-    background: #000;
+    background: #ff69b4;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -119,7 +121,7 @@ nav {
 }
 
 .quantity-btn:hover {
-    background: #444;
+    background: #ff1493;
 }
 
 #quantity {
@@ -132,7 +134,7 @@ nav {
 
 /* 购物车按钮 */
 .add-to-cart {
-    background: #000;
+    background: #ff69b4;
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -142,7 +144,7 @@ nav {
 }
 
 .add-to-cart:hover {
-    background: #444;
+    background: #ff1493;
 }
 
 /* 购物车通知 */
@@ -150,8 +152,9 @@ nav {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #000;
+    background: #ff69b4;
     color: white;
     padding: 1rem 2rem;
     display: none;
+    border-radius: 5px;
 }
