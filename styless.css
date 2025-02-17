@@ -148,13 +148,15 @@ nav {
 }
 
 /* 购物车通知 */
+
 .cart-notification {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #ff69b4;
+    top: 10px;
+    right: 10px;
+    background: #ffc1e3;
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.5rem 1rem;
     display: none;
     border-radius: 5px;
+    font-size: 0.9rem;
 }
