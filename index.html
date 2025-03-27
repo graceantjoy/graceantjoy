@@ -2,36 +2,42 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Graceantjoy - 提供天然护肤产品，让您的肌肤焕发光彩。">
+    <meta name="description" content="Graceantjoy - 天然护肤，焕发自然美丽">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graceantjoy - 自然之美，愉悦之选</title>
+    <title>Graceantjoy - 自然之美，肌肤呵护</title>
     
-    <!-- Google 字体 -->
+    <!-- 优化字体加载 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
     <style>
-        /* 主题色 */
         :root {
-            --primary-color: #ffffff;  /* 文字颜色 */
-            --secondary-color: #ffc0cb; /* 粉红色背景 */
-            --accent-color: #ff69b4;  /* 按钮背景 */
+            --primary-color: #FF69B4;     /* 主粉色 */
+            --secondary-color: #FFF0F5;   /* 浅粉背景 */
+            --text-color: #333;
+            --accent-color: #FF85A2;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Source Han Sans', sans-serif;
         }
 
-        /* 导航栏 */
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-smooth: antialiased;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 导航栏优化 */
         nav {
-            background: var(--secondary-color);
-            padding: 1rem 8%;
+            background: linear-gradient(to right, #FFC0CB, #FF69B4);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,45 +47,54 @@
             z-index: 1000;
         }
 
-        /* 导航栏字体样式 */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-links a {
             text-decoration: none;
-            color: var(--primary-color);
-            font-size: 1rem;
+            color: white;
+            margin: 0 15px;
             font-weight: 500;
-            padding: 0.7rem 1.5rem;
-            transition: color 0.3s ease, background 0.3s ease;
+            position: relative;
+            transition: color 0.3s ease;
         }
 
-        /* 鼠标悬停效果 */
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
         }
 
-        /* 响应式：在手机端整齐排列 */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                text-align: center;
-                padding: 1rem 5%;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            .nav-links a {
-                display: inline-block;
-                font-size: 0.9rem;
-            }
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
-        /* 轮播 banner */
+        /* 轮播 banner 优化 */
         .banner {
-            background: url('banner-bg.jpg') center/cover;
+            background: linear-gradient(rgba(255,192,203,0.7), rgba(255,105,180,0.7)), url('banner-bg.jpg');
+            background-size: cover;
+            background-position: center;
             height: 70vh;
             display: flex;
             align-items: center;
@@ -87,152 +102,178 @@
             text-align: center;
             color: white;
             position: relative;
+            overflow: hidden;
         }
 
         .banner h1 {
             font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             animation: fadeIn 2s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* 人气产品部分 */
-      .products {
+        .products {
             padding: 5rem 8%;
-            background: #ffffff; /* 或者使用 background: white; */
+            background: white;
         }
+
         .products h2 {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            animation: slideIn 1s ease-in-out;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
         }
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2.5rem;
         }
+
         .product-card {
             background: var(--secondary-color);
             padding: 1.5rem;
             text-align: center;
-            transition: transform 0.3s ease;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
+
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
+
         .product-img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
-            margin-bottom: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
         }
-        .price {
-            font-weight: 500;
-            color: var(--primary-color);
-            margin: 1rem 0;
-            font-size: 1.2rem;
+
+        .product-card:hover .product-img {
+            transform: scale(1.1);
         }
+
         .btn {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
             border: none;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
         }
+
         .btn:hover {
-            opacity: 0.8;
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
         }
-  
+
         /* 页脚 */
         footer {
-            background: var(--primary-color);
-            color: var(--accent-color);
+            background: linear-gradient(to right, #FFC0CB, #FF69B4);
+            color: white;
             padding: 3rem 8%;
             text-align: center;
         }
     </style>
 </head>
 <body>
-
     <!-- 导航栏 -->
     <nav>
         <div class="logo">GRACEANTJOY</div>
         <div class="nav-links">
             <a href="index.html">首页</a>
-            <a href="index.html#popular-products">产品</a>
+            <a href="#popular-products">产品</a>
             <a href="cart.html">购物车 (<span id="cartCount">0</span>)</a>
-            <a href="https://www.instagram.com/graceantjoy?igsh=NXU2ejBuc2VtanZk&utm_source=qr">联系我们</a>
+            <a href="https://www.instagram.com/graceantjoy" target="_blank">联系我们</a>
         </div>
     </nav>
 
     <!-- 轮播 banner -->
     <section class="banner">
-        <h1>发现自然之美</h1>
+        <h1>发现自然之美，拥抱健康肌肤</h1>
     </section>
 
     <!-- 人气产品部分 -->
-   <section id="popular-products" class="products">
-        <h2>人气产品</h2>
+    <section id="popular-products" class="products">
+        <h2>推荐产品</h2>
         <div class="product-grid">
             <!-- 精华液 -->
             <div class="product-card">
-                <img src="103.jpeg" alt="精华液" class="product-img">
+                <img src="103.jpeg" alt="焕活精华液" class="product-img lazy">
                 <h3>焕活精华液</h3>
                 <span class="price">¥299</span>
                 <a href="serum2.html">
-                    <button class="btn">了解产品</button>
+                    <button class="btn">了解详情</button>
                 </a>
             </div>
 
             <!-- 面膜 -->
             <div class="product-card">
-                <img src="mask.jpg" alt="面膜" class="product-img">
+                <img src="mask.jpg" alt="补水面膜" class="product-img lazy">
                 <h3>补水面膜</h3>
                 <span class="price">¥159</span>
-                <button class="btn">了解产品</button>
+                <button class="btn">了解详情</button>
             </div>
 
             <!-- 防晒 -->
             <div class="product-card">
-                <img src="sunscreen.jpg" alt="防晒霜" class="product-img">
+                <img src="sunscreen.jpg" alt="清爽防晒乳" class="product-img lazy">
                 <h3>清爽防晒乳</h3>
                 <span class="price">¥189</span>
-                <button class="btn">了解产品</button>
+                <button class="btn">了解详情</button>
             </div>
 
             <!-- 养肤水 -->
             <div class="product-card">
-                <img src="toner.jpg" alt="养肤水" class="product-img">
+                <img src="toner.jpg" alt="平衡养肤水" class="product-img lazy">
                 <h3>平衡养肤水</h3>
                 <span class="price">¥229</span>
-                <button class="btn">了解产品</button>
+                <button class="btn">了解详情</button>
             </div>
         </div>
     </section>
 
     <!-- 页脚 -->
     <footer>
-        <p>©️ 2023 Graceantjoy 保留所有权利</p>
+        <p>©️ 2024 Graceantjoy 保留所有权利</p>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Cart Count Update Script -->
     <script>
+        // 图片懒加载
+        document.addEventListener("DOMContentLoaded", function() {
+            let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src || lazyImage.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+        // 购物车数量更新
         function updateCartCount() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
